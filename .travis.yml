@@ -1,24 +1,25 @@
----
 language: node_js
 node_js:
-  - "4"
-
+- '4'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - npm config set spin false
-  - npm install -g bower
-  - bower --version
-  - npm install phantomjs-prebuilt
-  - node_modules/phantomjs-prebuilt/bin/phantomjs --version
-
+- npm config set spin false
+- npm install -g bower
+- bower --version
+- npm install phantomjs-prebuilt
+- node_modules/phantomjs-prebuilt/bin/phantomjs --version
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: Qe5M0BmXLd65Ly+SH234A9a7GwR4KV3CxPqOasgf9Pcyz40XknNsAFNfpVeyuSf+O8OYRX/nSgi539wirct3JYy/tVKzk0HE/q52jD0PdN+Q3l/GPzSzHN7ANAVl1F17GYkjoQzUYFUrasfVvMpYo0NpAu3Hr5Tnu2XmLU5aCAIUBV4LkG/upw6+IjyR0xmSWUvbhCz2GW+YJ/7GXDoFV0OeULEIRvs/Lvu6Zvs7yesFpafpVMuZ2V3Q/pAO+SuD2mqyszXtAv5nQnIXs7Mr0iD464PLU1VDtEkgV/JnKyFE+4HwtL8WCzEJuyjp9u5oU9vwCE+HagqnK/LS8vAW8uGnh2xd4b1+s7rGfuRqxOpaw8ccXdLQy4BDbWcQmws30z4fNsgiYwcRrVKCZTyR4L6yggiVMo/URgLWGlMrpP/bjwbw1dLuSiUsGSjiYhu7nIvZfbgZeCOnx2PuARy3JKzXC/OnsA3vb4Jk5mqvQri9IS0KO0wYGPbrNdOm5puft3t0xZMgmri4crbrFWTOnmLKuY6Kt/7Eb4x+0XNUZLkEAq6gE3/rLcEfSutdIbdA2KLpmOJrTJ4U5JT9aM+ImYjZqMkdXsleUhF8WbebtAIzXZ5WpcVYI5G5JYunFbVtQ4gXJhfVdgyXYbuFu7GNxM5PoC/XRChYgy3EEJiU6zA=
+  app: serene-beyond-29644
+  on:
+    repo: akatov/peepchat-ui
